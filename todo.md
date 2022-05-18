@@ -38,7 +38,7 @@ DEALINE : JUIN 2022
 =====================
 PUBLICATION
 .
-name: _Verror_
+name: _Ferror_
 Version: _v1_
 Date: _06/00/2022_
 Commentaire: _No comments_
