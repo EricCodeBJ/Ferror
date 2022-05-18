@@ -1,0 +1,158 @@
+@import url("color_palette.css");
+@import url("font-inter.css");
+
+
+body 
+{
+    width: 90%;
+    margin: 10px auto;
+    overflow-x: hidden;
+    font-size: .9rem;
+    font-family: var(--font-regular);
+}
+
+.theme-light 
+{
+    background: var(--cultured);
+    color: var(--black-2);
+}
+
+.theme-night
+{
+    background: var(--black);
+    color: var(--white);
+}
+
+.text-red 
+{
+    color: var(--tart-orange);
+} 
+
+.clickable
+{
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
+ul 
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.btn-error {
+    background-color: var(--tart-orange);
+}
+
+/* Top Alert */
+.top-alert 
+{
+    display: flex;
+    align-items: center;
+    background-color: var(--eerie-black);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 12px;
+    color: white;
+    margin-bottom: 0px;
+    font-family: var(--font-semibold);
+}
+
+.top-alert  img 
+{
+    width: 20px;
+    margin-right: 7px
+}
+
+
+/* Table error description */
+.table
+{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background: var(--white);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+} 
+
+tr, th, td
+{
+    padding: 12px;
+    margin: 0;
+} 
+
+.tableDesciption th
+{
+    font-family: var(--font-thin);
+    white-space: nowrap;
+    min-width: 100px;
+    max-width: 150px;
+} 
+
+.tableDesciption  td
+{
+    font-family: var(--font-medium);
+    font-size: .9rem;
+}
+
+
+/* Table of Content */
+.tableContent
+{
+   display: flex;
+}
+
+.tableContent .menu 
+{
+    font-family: var(--font-regular);
+    font-size: .9rem;
+    white-space: nowrap;
+    width: fit-content;
+    min-width: 275px;
+    background-color: var(--gray2);
+}
+
+.tableContent .menu ul li 
+{
+    padding: 15px;
+    font-family: var(--font-regular);
+    opacity: .7;
+    cursor: pointer;
+}
+
+.content 
+{
+    width: inherit;
+}
+
+.active 
+{
+    background: var(--active);
+    font-family: var(--font-medium) !important;
+    opacity: 1 !important;
+    position: relative;
+}
+.active::before
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height:48px;
+    background-color: var(--royal-blue-light);
+}
+
+.btn 
+{
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-exception {
+    background-color: var(--burnt-orange);
+}

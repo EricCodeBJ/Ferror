@@ -1,13 +1,27 @@
 <?php
 
-use Mido\libs\CustomError;
+/*
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+*/
 
-require_once "CustomError.php";
+//echo $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
-CustomError::active(CustomError::DEBUG_MODE_ON);
+use Ferror\Controllers\FerrorController;
+
+require_once "../app/core/FerrorController.php";
+
+FerrorController::active(FerrorController::DEBUG_MODE_ON);
+
 
 $info = [];
 
 $info[] = "a";
 
+require_once "efsd.php";
+
+
 echo $info[1];
+
+//$i = new PDO("zrse", "sfdg");

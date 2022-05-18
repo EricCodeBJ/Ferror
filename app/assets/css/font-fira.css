@@ -1,0 +1,11 @@
+
+:root {
+    --font-regular: "regular";
+}
+
+
+@font-face 
+{
+    font-family: "regular";
+    src: url("../font/fira/FiraCode-SemiBold.ttf");
+}
