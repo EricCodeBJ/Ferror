@@ -18,6 +18,7 @@ Doit afffichier (↓↓↓) de l'erreur
 - Envoie de mail ($POST, GET, COOKIES, IP, Ligne, User-Agent, fichier, date, messageErreur)
 - Stockage en Base de données si possible
 - Partager
+- Faire référence aux choses ue j'ai utilisé
 
 -> A VERIFIER <-
 

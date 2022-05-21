@@ -2,6 +2,10 @@
 
 namespace Ferror\Controllers;
 
+use ExceptionExtender\FerrorExceptionExtender;
+
+require_once "FerrorExceptionExtender.php";
+
 class FerrorController
 {
     /**
@@ -71,6 +75,7 @@ class FerrorController
 
     public static function errorHandler($errorCode, $errorMessage, $errorFile, $errorLine)
     {
+
         self::$arrayErorr["errorCode"] = $errorCode;
         self::$arrayErorr["errorMessage"] = $errorMessage;
         self::$arrayErorr["errorFile"] = $errorFile;
@@ -83,11 +88,13 @@ class FerrorController
 
     public static function exceptionHandler($e)
     {
-        self::$arrayErorr["errorCode"] = $e["code"];
-        self::$arrayErorr["errorMessage"] = $e["message"];
-        self::$arrayErorr["errorFile"] = $e["file"];
-        self::$arrayErorr["errorLine"] = $e["line"];
-        self::$arrayErorr["errorType"] =  in_array($e[""], self::$arrayErorrCodeToType) ? self::$arrayErorrCodeToType[$e["code"]]  : "Warning";
+
+        $i = new FerrorExceptionExtender($e);
+        self::$arrayErorr["errorCode"] = $i->getErrorCode();
+        self::$arrayErorr["errorMessage"] = $i->getErrorMessage();
+        self::$arrayErorr["errorFile"] = $i->getErrorFile();
+        self::$arrayErorr["errorLine"] = $i->getErrorLine();
+        self::$arrayErorr["errorType"] =  in_array($i->getErrorCode(), self::$arrayErorrCodeToType) ? self::$arrayErorrCodeToType[$i->getErrorCode()]  : "Warning";
 
         self::render(self::$arrayErorr);
     }
@@ -102,15 +109,13 @@ class FerrorController
 
     private static function render(array $data)
     {
+        require_once dirname(__FILE__) . "../../layout/template.php";
+    }
 
-        if (  ) 
-        {
-
-        }
-
-        if ( true ) 
-        {
-            die();
-        }
+    private static function show($e)
+    {
+        echo "<pre>";
+        print_r($e);
+        echo "</pre>";
     }
 }

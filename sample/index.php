@@ -19,9 +19,17 @@ $info = [];
 
 $info[] = "a";
 
-require_once "efsd.php";
+//require_once "efsd.php";
+
+//1 / 00;
+
+//echo $info[1];
+
+$i = new PDO("zrse", "sfdg");
 
 
-echo $info[1];
+//require_once "efsd.php";
 
-//$i = new PDO("zrse", "sfdg");
+//1 / 00;
+
+//echo $info[1];

@@ -1,4 +1,4 @@
-@import url("font-inter.css");
+
 
 /*! EnlighterJS Syntax Highlighter 3.5.0 | Mozilla Public License 2.0 | https://enlighterjs.org */
 .enlighter-tooltip {
@@ -6,7 +6,7 @@
 }
 .enlighter-default {
     font-family: var(--font-medium), "Liberation Mono", "Courier New", Courier, monospace;
-    font-size: 12px;
+    font-size: 1rem;
     line-height: 1.35em;
     overflow: hidden;
     white-space: pre-wrap;
@@ -3192,12 +3192,13 @@ span.enlighter {
 .enlighter-t-bootstrap4 div.enlighter > div.enlighter-special {
     background-color: #e9000021;
 }
+
 .enlighter-t-bootstrap4.enlighter-linenumbers div.enlighter > div::before {
     padding: 1px 5px 1px 0;
     font-size: 0.8em;
 }
 .enlighter-t-bootstrap4 .enlighter span {
-    font-size: 1.15em;
+    font-size: 1rem;
 }
 .enlighter-t-bootstrap4 .enlighter-text {
     color: #212529;
@@ -3962,4 +3963,12 @@ span.enlighter {
     color: #f8f8f2;
     font-weight: 700;
     font-style: normal;
+}
+
+.enlighter-special {
+    color: red !important;
+}
+
+.enlighter-special span {
+    color: red !important;
 }
