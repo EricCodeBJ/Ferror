@@ -1,0 +1,49 @@
+/* 
+    @font: Inter
+    @author: Designed by Rasmus Andersson
+*/
+
+@font-face {
+    font-family: "black";
+    src: url("../font/inter/black.ttf");
+}
+
+@font-face {
+    font-family: "bold";
+    src: url("../font/inter/interbold.ttf");
+}
+
+@font-face {
+    font-family: "extrabold";
+    src: url("../font/inter/interextrabold.ttf");
+}
+
+@font-face {
+    font-family: "light";
+    src: url("../font/inter/interlight.ttf");
+}
+
+@font-face {
+    font-family: "extralight";
+    src: url("../font/inter/interextralight.ttf");
+}
+
+@font-face {
+    font-family: "medium";
+    src: url("../font/inter/intermedium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "regular";
+    src: url("../font/inter/interregular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "semibold";
+    src: url("../font/inter/intersemibold.ttf");
+}
+
+@font-face {
+    font-family: "thin";
+    src: url("../font/inter/interthin.ttf");
+}

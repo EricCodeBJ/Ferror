@@ -10,15 +10,16 @@ Doit afffichier (↓↓↓) de l'erreur
 - Couleur peut varier en fonction de ce code
 - Bien documenter
 - # Copier l'erreur aussi
+- # Chercher sur internet
+- # Variable global
 
   -> AVANCER <-
 
-- Laisser a l'utilisateur le choix de tuer ou laisser le script continuer
+- ? Laisser a l'utilisateur le choix de tuer ou laisser le script continuer
 - Mode débug
-- Envoie de mail ($POST, GET, COOKIES, IP, Ligne, User-Agent, fichier, date, messageErreur)
-- Stockage en Base de données si possible
+- ? Envoie de mail ($POST, GET, COOKIES, IP, Ligne, User-Agent, fichier, date, messageErreur)
+- ? Stockage en Base de données si possible
 - Partager
-- Faire référence aux choses ue j'ai utilisé
 
 -> A VERIFIER <-
 
@@ -38,6 +39,8 @@ Warning Error
 Notice Error
 Parse Error (Syntax)
 Fatal Error
+
+? Syntax Error
 
 - Test des fonctionnalité avec (email & database)
 - Installation puis utiliser a partir de composer
@@ -64,5 +67,8 @@ Date: **
 Commentaire: **
 .
 
-- Mode clair ou sombre
-- Doit permettre a la personne de faire des recherches sur StackOverrflow de l'erreur
+/_
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+_/

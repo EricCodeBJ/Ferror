@@ -1,0 +1,178 @@
+@import url("root.css");
+@import url("font.css");
+
+body {
+    width: 90%;
+    margin: 10px auto;
+    overflow-x: hidden;
+    font-size: 1rem;
+    font-family: var(--font-regular);
+}
+
+.theme-light {
+    background: var(--cultured);
+    color: var(--black-2);
+}
+
+.theme-night {
+    background: var(--black);
+    color: var(--white);
+}
+
+.text-red {
+    color: var(--tart-orange);
+}
+
+.clickable {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.btn-error {
+    background-color: var(--tart-orange);
+}
+
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/* Top Alert */
+.top-alert {
+    display: flex;
+    align-items: center;
+    background-color: var(--eerie-black);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 12px;
+    color: white;
+    margin-bottom: 0px;
+    font-family: var(--font-semibold);
+}
+
+.top-alert img {
+    width: 20px;
+    margin-right: 7px
+}
+
+
+/* Table error description */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background: var(--white);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: var(--white);
+    box-shadow: 0 2px 8px var(--shadow);
+    border: 1px solid var(--gainsboro);
+}
+
+tr,
+th,
+td {
+    padding: 12px;
+    margin: 0;
+    border: 1px solid var(--gainsboro);
+}
+
+.tableDesciption th {
+    font-family: var(--font-light);
+    white-space: nowrap;
+    min-width: 152px;
+    max-width: 152px;
+}
+
+.tableDesciption td {
+    font-family: var(--font-medium);
+    font-size: 1rem;
+}
+
+
+/* Table of Content */
+.tableContent {
+    display: flex;
+}
+
+.tableContent .menu {
+    font-family: var(--font-regular);
+    font-size: 1rem;
+    white-space: nowrap;
+    width: fit-content;
+    width: 275px;
+    background-color: var(--gray2);
+    border: 1px solid var(--gainsboro);
+}
+
+.tableContent .menu ul li {
+    padding: 15px;
+    font-family: var(--font-regular);
+    opacity: .5;
+    cursor: pointer;
+    white-space: pre-wrap;
+    overflow-wrap:break-word;
+}
+
+.content {
+    width: inherit;
+}
+
+.active {
+    background: var(--active);
+    font-family: var(--font-medium) !important;
+    opacity: 1 !important;
+    position: relative;
+    color: var(--royal-blue-light);
+    border-left: 5px solid var(--royal-blue-light);
+
+}
+
+.btn {
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-exception {
+    background-color: var(--burnt-orange);
+}
+
+.menuSubTitle p {
+    padding: 0px 0px 10px 15px;
+    color: #999;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 1em;
+    font-family: var(--font-semibold);
+    text-transform: uppercase;
+}
+
+.menuSubTitle li {
+    padding-left: 20px !important;
+    display: block;
+}
+
+.activeTitleMenu p {
+    color: var(--eerie-black);
+    font-family: var(--font-bold);
+    text-transform: uppercase;
+}
+
+.activeTitleMenu li.active::before {
+    content: "• ";
+}
+
+.activeTitleMenu li {
+    display: block;
+}
