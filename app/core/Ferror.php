@@ -9,15 +9,16 @@ use helper\FerrorUtility;
 class Ferror
 {
     /**
-     * DEBUG MOD Activate par default
+     * DEBUG MOD
+     * 1 = Activate
+     * 0 = Desactivate 
      */
     public const DEBUG_MODE_ON = 1;
-    /**
-     * DEBUG MOD InActivate
-     */
     public const DEBUG_MODE_OFF = 0;
 
     public const APP_NAME = "ferror";
+
+    private static $shutdownCalledStatut = false;
 
     private static array $arrayErorr =  [
         "errorCode" => null,
@@ -49,13 +50,13 @@ class Ferror
     {
     }
 
-    public static function active(int $debug_mode = self::DEBUG_MODE_ON)
+    public static function register(int $debug_mode = self::DEBUG_MODE_ON)
     {
         if ($debug_mode === self::DEBUG_MODE_ON) {
-            register_shutdown_function(array(self::getInstance(), "shutdownHandler"));
+            spl_autoload_register([self::getInstance(), "autoloader"]);
             set_error_handler(array(self::getInstance(), "errorHandler"));
             set_exception_handler(array(self::getInstance(), "exceptionHandler"));
-            spl_autoload_register([self::getInstance(), "autoloader"]);
+            //register_shutdown_function(array(self::getInstance(), "shutdownHandler"));
         }
     }
 
@@ -77,10 +78,12 @@ class Ferror
         self::render(self::$arrayErorr);
     }
 
-    //will be called when php script ends.
     public static function shutdownHandler()
     {
+        // && !self::$shutdownCalledStatut
+        echo "zzzz";
         $lasterror = error_get_last();
+
         if (!empty($lasterror)) {
             switch ($lasterror['type']) {
                 case E_ERROR:
@@ -92,11 +95,10 @@ class Ferror
                 case E_COMPILE_WARNING:
                 case E_PARSE:
                     self::$arrayErorr["errorCode"] = $lasterror['type'];
-                    self::$arrayErorr["errorMessage"] = $lasterror['message'];
                     self::$arrayErorr["errorFile"] = $lasterror['file'];
                     self::$arrayErorr["errorLine"] = $lasterror['line'];
                     self::$arrayErorr["errorType"] =  in_array($lasterror['type'], self::$arrayErorrCodeToType) ? self::$arrayErorrCodeToType[$lasterror['type']]  : "Warning";
-
+                    self::$arrayErorr["errorMessage"] = $lasterror['message'];
                     self::render(self::$arrayErorr);
             }
         }
@@ -116,8 +118,7 @@ class Ferror
             self::$arrayErorr["errorMessage"] = $i->getErrorMessage();
             self::$arrayErorr["errorFile"] = $i->getErrorFile();
             self::$arrayErorr["errorLine"] = $i->getErrorLine();
-            self::$arrayErorr["errorType"] =  in_array($i->getErrorCode(), self::$arrayErorrCodeToType) ? self::$arrayErorrCodeToType[$i->getErrorCode()]  : "Warning";
-
+            self::$arrayErorr["errorType"] = in_array($i->getErrorCode(), self::$arrayErorrCodeToType) ? self::$arrayErorrCodeToType[$i->getErrorCode()]  : "Warning";
             self::render(self::$arrayErorr);
         }
     }
@@ -132,14 +133,17 @@ class Ferror
 
     private static function render(array $data)
     {
+        $ii = $data;
 
         // Clean previous output
         if (ob_get_length()) {
             ob_end_clean();
         }
 
+
         ob_start();
 
+        // Loading error diagnosis data for the view
         new FerrorUtility($data);
 
         require_once dirname(__FILE__) . "../../main/template.php";

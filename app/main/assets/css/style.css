@@ -176,3 +176,9 @@ td {
 .activeTitleMenu li {
     display: block;
 }
+
+.menuSubSubTitle {
+    color: darkslateblue;
+    font-size: .95rem;
+    opacity: .9;
+}

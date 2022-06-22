@@ -7,15 +7,15 @@ Doit afffichier (↓↓↓) de l'erreur
 - fichier
 - Ligne
 - Apercu de la ligne d'erreur dans le fichier
-- Couleur peut varier en fonction de ce code
 - Bien documenter
+- Variable global
 - # Copier l'erreur aussi
 - # Chercher sur internet
-- # Variable global
 
-  -> AVANCER <-
+- DEV MOD ONly
 
-- ? Laisser a l'utilisateur le choix de tuer ou laisser le script continuer
+-> AVANCER <-
+
 - Mode débug
 - ? Envoie de mail ($POST, GET, COOKIES, IP, Ligne, User-Agent, fichier, date, messageErreur)
 - ? Stockage en Base de données si possible

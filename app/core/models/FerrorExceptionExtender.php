@@ -15,10 +15,10 @@ class FerrorExceptionExtender extends Exception implements FerrorInterfaceHandle
 
     public function __construct($errors)
     {
-        $this->mFile = $errors->file;
-        $this->mMessage = $errors->message;
-        $this->mCode = 0;
-        $this->mLine = $errors->line;
+        $this->mFile = $errors->getFile();
+        $this->mMessage = $errors->getMessage();
+        $this->mCode = $errors->getCode();
+        $this->mLine = $errors->getLine();
     }
 
     public function getErrorMessage()

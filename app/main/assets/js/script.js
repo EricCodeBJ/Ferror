@@ -1,5 +1,23 @@
 window.addEventListener("load", () => {
 
+    function unActiveMenuItem(target) {
+        if (target == "all") {
+            menuItem.forEach((element) => {
+                element.classList.remove("active");
+            });
+        }
+    }
+
+    function unActiveMenuTitle(target) {
+        if (target == "all") {
+            menuTitles.forEach((element) => {
+                element.classList.remove("activeTitleMenu");
+            });
+        } else {
+            target.classList.remove("activeTitleMenu");
+        }
+    }
+
     EnlighterJS.init('pre', 'code');
 
     const menuItem = document.querySelectorAll(".menu ul li");
@@ -32,26 +50,7 @@ window.addEventListener("load", () => {
     menuTitles.forEach((menuTitle) => {
         menuTitle.addEventListener("click", () => {
             unActiveMenuTitle("all");
-
             menuTitle.classList.add("activeTitleMenu");
         })
     })
-
-    function unActiveMenuItem(target) {
-        if (target == "all") {
-            menuItem.forEach((element) => {
-                element.classList.remove("active");
-            });
-        }
-    }
-
-    function unActiveMenuTitle(target) {
-        if (target == "all") {
-            menuTitles.forEach((element) => {
-                element.classList.remove("activeTitleMenu");
-            });
-        } else {
-            target.classList.remove("activeTitleMenu");
-        }
-    }
 })

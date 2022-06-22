@@ -1,9 +1,3 @@
-<?php
-//print_r($GLOBALS);
-// print_r(array_keys(get_defined_vars()));
-// $data["extra"]["gblobalUserMenu"];
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,10 +7,10 @@
     <base href="<?php echo $data["extra"]["basename"]; ?>">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/libs/Enlighterjs/css/enlighterjs.min.css" />
+    <title>FerrorError: <?php echo $data["errorType"] . " " . $data["errorMessage"]; ?></title>
 </head>
 
 <body class="theme-light">
-
     <!-- Table of error: Header -->
     <p class="top-alert alert-error">
         <img src="assets/icons/alert-circle.svg" alt="icon" />
@@ -27,7 +21,15 @@
     <table style="border-top-left-radius: 0px; border-top-right-radius: 0px" class="table tableDesciption">
         <tr>
             <th>Type</th>
-            <td><span class="btn btn-error"><?php echo $data["errorType"]; ?></span></td>
+            <td>
+                <span class="btn btn-error"><?php echo $data["errorType"]; ?></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Code</th>
+            <td style="color:red">
+                <?php echo $data["errorCode"]; ?>
+            </td>
         </tr>
         <tr>
             <th>Message</th>
@@ -41,7 +43,6 @@
             <th>Line</th>
             <td style="color:red"><?php echo $data["errorLine"]; ?></td>
         </tr>
-
     </table>
 
     <!-- Table of data: Glbobals, data... -->
@@ -49,20 +50,18 @@
         <div class="menu">
             <ul>
                 <div class="menuSubTitle activeTitleMenu">
-                    <li data-target-global='errorFile' class="active"> <b>File </b> <br /><?php echo $data["extra"]["fileNameOnLine"]; ?></li>
+                    <li data-target-global='errorFile' class="active"> <b>File </b> <br /> <span class="menuSubSubTitle"><?php echo $data["extra"]["fileNameOnLine"]; ?></span></li>
                 </div>
                 <div class="menuSubTitle">
-                    <li data-target-global='all-variables'> <b>Variables </b> <br /><?php echo $data["extra"]["gblobalUserMenuVariables"]; ?></li>
+                    <li data-target-global='all-variables'> <b>Variables </b> <br /> <span class="menuSubSubTitle"><?php echo $data["extra"]["gblobalUserMenuVariables"]; ?></span></li>
                 </div>
                 <div class="menuSubTitle">
-                    <li data-target-global='all-constantes'> <b>Constantes </b> <br /><?php echo $data["extra"]["gblobalUserMenuConstantes"]; ?></li>
+                    <li data-target-global='all-constantes'> <b>Constantes </b> <br /> <span class="menuSubSubTitle"><?php echo $data["extra"]["gblobalUserMenuConstantes"]; ?></span></li>
                 </div>
                 <div class="menuSubTitle">
                     <p id="globalParagraphe">Globals</p>
                     <?php echo $data["extra"]["globalMenus"]; ?>
                 </div>
-
-
             </ul>
         </div>
         <div class="content">
@@ -74,7 +73,6 @@
             <?php echo $data["extra"]["gblobalUserDatas"]; ?>
             <?php echo $data["extra"]["gblobalUserDatasConstantes"]; ?>
         </div>
-
     </div>
 
     <script type="text/javascript" src="assets/libs/Enlighterjs/js/enlighterjs.min.js"></script>

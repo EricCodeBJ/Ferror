@@ -1,4 +1,6 @@
 <?php
+
+
 /*ini_set('error_reporting', -1);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -9,8 +11,10 @@ use Ferror\Ferror;
 
 require_once "../app/core/Ferror.php";
 
-Ferror::active(Ferror::DEBUG_MODE_ON);
+Ferror::register(Ferror::DEBUG_MODE_ON);
 
+/*ini_set("display_errors", "off");
+error_reporting(E_ALL);*/
 
 $nullable = NULL;
 $a = "26";
@@ -33,12 +37,12 @@ $info[] = "a";
 
 //require_once "efsd.php";
 
-///1 / 0;
+// 1 / 0;
 
-//echo $info[1];
+// echo $info[1];
 
-//$i = new PDO("zrse", "sfdg");
+echo $info;
 
-$ibo = new DateTime();
+$i = new PDO("zrse", "sfdg");
 
-mail();
+//$ibo = new DateTime($DQQS);

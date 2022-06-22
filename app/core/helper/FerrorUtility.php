@@ -90,6 +90,13 @@ class  FerrorUtility
 
                 if ($currentLine >= intval(self::$datas["errorLine"]) - 15 && $currentLine <= intval(self::$datas["errorLine"]) + 15) {
                     $fileOffset = $fileOffset == -1 ? $currentLine : $fileOffset;
+                    /*
+                        I added three ellipsis because the code colorator trims the empty lines 
+                        and it shifts the target line of the error
+                    */
+                    if (empty(trim($fileContent)) && empty(trim($line))) {
+                        $line .= ". . .\n";
+                    }
                     $fileContent .= $line;
                 }
 

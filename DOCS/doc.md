@@ -1,6 +1,11 @@
 Doit contenir:
 
+- Le nom des fichiers
+
 - Faire référence aux choses ue j'ai utilisé
+  @font: Inter
+  @author: Designed by Rasmus Andersson
+
 - Les erreurs que ça peut interceptés
 -
 - Quelle Avantage et inconvenients (more lisible, donnée des tableaux)

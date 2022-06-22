@@ -9,18 +9,16 @@ class FerrorErrorExtender extends Error implements FerrorInterfaceHandler
 {
 
     protected $mFile;
-    protected $mMessages;
-    protected $mCodes;
-    protected $mLines;
+    protected $mMessage;
+    protected $mCode;
+    protected $mLine;
 
     public function __construct($errors)
     {
-        echo "sd";
-        var_dump($errors);
-        $this->mFile = $errors->file;
-        $this->mMessage = $errors->message;
-        $this->mCode = 0;
-        $this->mLine = $errors->line;
+        $this->mFile = $errors->getFile();
+        $this->mMessage = $errors->getMessage();
+        $this->mCode = $errors->getCode();
+        $this->mLine = $errors->getLine();
     }
 
     public function getErrorMessage()
