@@ -1,11 +1,25 @@
 <?php
 
-namespace helper;
+namespace Ferror\Core\Helpers;
 
-class  FerrorUtility
+class  FerrorHelpers
 {
     private static $datas;
 
+
+
+
+
+    /**
+     * 
+     *  __construct
+     * 
+     *  used to call other useful methods of the class
+     * 
+     *  @param array $data : contains details about the detected error or exception 
+     *                      (file name, line, error message, etc.)
+     * 
+     */
     public function __construct(array &$data)
     {
         self::$datas = &$data;
@@ -15,16 +29,45 @@ class  FerrorUtility
         $this->getFileName();
     }
 
+
+
+
+
+    /**
+     * 
+     *  getBasename
+     *
+     *  To get the href attribute of the base tag in the template.php file. 
+     *  This is used to find the exact paths of asset files and to load them 
+     *  well without problems of restriction or not allowed by the browser
+     * 
+     *  @return void
+     * 
+     */
     private function getBasename()
     {
         $DOCUMENT_ROOT = $this->sanitizePath($_SERVER["DOCUMENT_ROOT"]);
         $HTTP_HOST = $this->sanitizePath($_SERVER["HTTP_HOST"]);
         $DIR = $this->sanitizePath(__DIR__);
         $basename = str_replace($DOCUMENT_ROOT, $HTTP_HOST, $DIR);
-        $basename = "http:" . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . dirname($basename, 2) . DIRECTORY_SEPARATOR . "main" . DIRECTORY_SEPARATOR;  // Going back to app folder
+        $basename = "http:" . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . dirname($basename, 2) . DIRECTORY_SEPARATOR . "Resources" . DIRECTORY_SEPARATOR;  // Going back to app folder
         self::$datas["extra"]["basename"] = $basename;
     }
 
+
+
+
+
+    /**
+     * 
+     *  getGlobalsArray
+     *
+     *  To get PHP global information ("_COOKIE", "_GET", "_POST"...) 
+     *  and convert it into html menu list
+     * 
+     *  @return void
+     * 
+     */
     public function getGlobalsArray()
     {
         $globalMenus = "";
@@ -43,7 +86,7 @@ class  FerrorUtility
             } else {
                 $gblobalUserMenu .= "$$key, ";
                 $gblobalUserDatasArray .=   "// " . ucfirst(gettype($values)) . (is_object($values) ? " : " . get_class($values) : "") .
-                    "\n $" . $key . " = " . $this->formatVariableType($values) .
+                    "\n $" . $key . " = " . $this->formatVariableByType($values) .
                     "\n\n";
             }
         }
@@ -52,7 +95,7 @@ class  FerrorUtility
         $gblobalUserMenuConstantes = "";
         if (!empty(get_defined_constants(true)["user"])) {
             foreach (get_defined_constants(true)["user"] as $constanteKey => $constanteValue) {
-                $gblobalUserDatasConstantes .= "// " . ucfirst(gettype($constanteValue)) . (is_object($constanteValue) ? " : " . get_class($constanteValue) : "") . "\n $" . $constanteKey . " = " . $this->formatVariableType($constanteValue) . "\n\n";
+                $gblobalUserDatasConstantes .= "// " . ucfirst(gettype($constanteValue)) . (is_object($constanteValue) ? " : " . get_class($constanteValue) : "") . "\n $" . $constanteKey . " = " . $this->formatVariableByType($constanteValue) . "\n\n";
                 $gblobalUserMenuConstantes .= "$constanteKey, ";
             }
         }
@@ -77,9 +120,22 @@ class  FerrorUtility
         self::$datas["extra"]["globalDatas"] = $globalDatas;
     }
 
+
+
+
+
+    /**
+     * 
+     *  getFileContent
+     *
+     *  Get the contant of the file where the error or exception was caught
+     *  Specially file content around (15 line before and after) the error line
+     * 
+     *  @return void
+     * 
+     */
     public function getFileContent()
     {
-        // Get file content around the error
         $fileContent = "";
         $handle = fopen(self::$datas["errorFile"], "r");
         $fileOffset = -1;
@@ -107,18 +163,30 @@ class  FerrorUtility
         } else {
             $fileOffset = 0;
         }
-
         self::$datas["extra"]["fileOffset"] = $fileOffset;
         self::$datas["extra"]["fileContent"] = $fileContent;
     }
 
+
+
+
+
+    /**
+     * 
+     *  getFileName
+     *
+     *  Get the name of the file where the error or exception was caught
+     *  and Error line concatenation without exceeding 45 character
+     * 
+     *  @return void
+     * 
+     */
     public function getFileName()
     {
         $filename = self::$datas["errorFile"];
         $fileNameOnLine = $filename . ":" . self::$datas["errorLine"];
 
 
-        // File name and Error line concatenation without exceeding 25 character
         if (strlen($fileNameOnLine) >= 45) {
             $fileNameOnLine =  "..." . substr($filename, strlen($filename) - (41 - strlen(self::$datas["errorLine"])), strlen($filename) - 1) . ":" . self::$datas["errorLine"];
         }
@@ -126,14 +194,43 @@ class  FerrorUtility
         self::$datas["extra"]["fileNameOnLine"] = $fileNameOnLine;
     }
 
+
+
+
+
+    /**
+     * 
+     *  sanitizePath
+     *
+     *  Replace slashes and backslashes from $path with PHP's DIRECTORY_SEPARATOR constant
+     * 
+     *  @param string $path
+     *  @return string
+     * 
+     */
     public function sanitizePath(string $path): string
     {
-        $pathCopy = preg_replace('/[\/]/', DIRECTORY_SEPARATOR, $path); // Removing slash (/)
-        $pathCopy = preg_replace('/\\\\/', DIRECTORY_SEPARATOR, $pathCopy); // Removing backSlash (\)
+        $pathCopy = preg_replace('/[\/]/', DIRECTORY_SEPARATOR, $path);
+        $pathCopy = preg_replace('/\\\\/', DIRECTORY_SEPARATOR, $pathCopy);
         return $pathCopy;
     }
 
-    public function formatVariableType($variables)
+
+
+
+
+    /**
+     * 
+     *  formatVariableByType
+     *
+     *  Allows us to properly display the contents of the variables 
+     *  according to their type. ex: Tables and Object in Json format...
+     * 
+     *  @param [mixed] $variables
+     *  @return void
+     * 
+     */
+    public function formatVariableByType($variables)
     {
         $formattedVariables = "";
         $variableTyype = strtolower(strval(gettype($variables)));

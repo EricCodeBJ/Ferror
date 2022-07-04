@@ -7,7 +7,8 @@
     <base href="<?php echo $data["extra"]["basename"]; ?>">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/libs/Enlighterjs/css/enlighterjs.min.css" />
-    <title>FerrorError: <?php echo $data["errorType"] . " " . $data["errorMessage"]; ?></title>
+    <link ref="icon" href="assets/icons/logoFerror.png" />
+    <title>Ferror | <?php echo $data["errorType"] . " " . $data["errorMessage"]; ?></title>
 </head>
 
 <body class="theme-light">
@@ -31,13 +32,26 @@
                 <?php echo $data["errorCode"]; ?>
             </td>
         </tr>
-        <tr>
+        <tr class="table-row-message">
             <th>Message</th>
-            <td style="text-decoration: none; color:red; font-size: 1.2rem"><?php echo $data["errorMessage"]; ?></td>
+            <td style="text-decoration: none; color:red; font-size: 1.2rem;">
+                <div style="padding-right:37px">
+                    <span><?php echo $data["errorMessage"]; ?></span>
+                    <!-- This textarea is used to help me copy the error code 
+                            He has no utility in the front, why i have hidden this -->
+                    <textarea id="errorMessage" style="opacity: 0; width: 0; height: 0">
+                            <?php echo "PHP " . $data["errorType"] . " " . $data["errorMessage"]; ?>
+                        </textarea>
+                </div>
+                <div class="iconBloc">
+                    <img src="assets/icons/copy-icon.png" alt="copy-icon" title="copy">
+                    <span id="copySpan">copy</span>
+                </div>
+            </td>
         </tr>
         <tr>
             <th>File</th>
-            <td class="clickable" style="color:blue; cursor: default"><a href="<?php echo $data["errorFile"]; ?>" target="_blank"><?php echo $data["errorFile"]; ?></a></td>
+            <td class="clickable" style="color:blue; cursor: default"><a href="javascript:void(0);"><?php echo $data["errorFile"]; ?></a></td>
         </tr>
         <tr>
             <th>Line</th>
@@ -58,7 +72,7 @@
                 <div class="menuSubTitle">
                     <li data-target-global='all-constantes'> <b>Constantes </b> <br /> <span class="menuSubSubTitle"><?php echo $data["extra"]["gblobalUserMenuConstantes"]; ?></span></li>
                 </div>
-                <div class="menuSubTitle">
+                <div class="menuSubTitle mneuGlobales">
                     <p id="globalParagraphe">Globals</p>
                     <?php echo $data["extra"]["globalMenus"]; ?>
                 </div>

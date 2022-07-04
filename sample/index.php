@@ -1,48 +1,45 @@
 <?php
 
+use Ferror\Core\Ferror;
 
-/*ini_set('error_reporting', -1);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL) */
-
-
-use Ferror\Ferror;
-
-require_once "../app/core/Ferror.php";
+require_once "../Ferror/Core/Ferror.php";
 
 Ferror::register(Ferror::DEBUG_MODE_ON);
 
-/*ini_set("display_errors", "off");
-error_reporting(E_ALL);*/
 
-$nullable = NULL;
-$a = "26";
-$b1jou = 'Je é"suis 0';
-$couilles = "0";
-$imbecile = "10";
-const DEFINNN = "10";
-const DENS = 10;
+const DEKOUN = 10;
+const CEDRIC = ["d" => "jfk", "AV" => "sdf"];
 
-const DAMSOO = ["d" => "jfk", "AV" => "sdf"];
-
+$age = "23";
+$detail = 'Je suis au Bénin';
 
 $DENS = 1.20;
 $still = false;
-$indoqs = 100 - intval($a);
 
 $info = [];
 
 $info[] = "a";
 
-//require_once "efsd.php";
+/* Failed to open stream: No such file or directory */
+// require_once "efsd.php";
 
+/* PHP Warning Division by zero */
 // 1 / 0;
 
+/* Undefined array key */
 // echo $info[1];
 
-echo $info;
+/* Array to string conversion */
+// echo $info;
 
-$i = new PDO("zrse", "sfdg");
+/* PDO::__construct(): Argument #1 ($dsn) must be a valid data source name  */
+// $i = new PDO("zrse", "sfdg");
 
-//$ibo = new DateTime($DQQS);
+/* Undefined variable $DQQS */
+// $ibo = new DateTime($DQQS);
+
+/* mail() expects at least 3 arguments, 0 given */
+// mail();
+
+/* Class "Bilbao" not found */
+// new Bilbao();
