@@ -1,11 +1,11 @@
 <p>
-<img  src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-ferror.png?raw=true"  width="200px" />
+<img  src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/icons/logoFerror-circle.png?raw=true"  width="200px" />
 </p>
 
 # Ferror - Un léger formateur d'erreur et d'exception Php
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/EricCodeBJ/Ferror/blob/master/readme.md)
-[![fr-ca](https://img.shields.io/badge/lang-fr-ca-blue.svg)](https://github.com/EricCodeBJ/Ferror/blob/master/readme.fr-ca.md)
+[![fr-ca](https://img.shields.io/badge/lang-fr-ca.svg)](https://github.com/EricCodeBJ/Ferror/blob/master/readme.fr-ca.md)
 
 # Fonctionnalité ?
 
@@ -42,7 +42,7 @@ composer install mido/ferror
 # Example d'usage
 
 ```
-
+<?php
 use Ferror\Core\Ferror;
 require_once "../vendor/autoload.php";
 
@@ -60,11 +60,11 @@ require_once "efsd.php";
 
 - sans Ferror
 
-<img  src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-ferror.png?raw=true"  style="width: 100%" />
+<img  src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-php.png?raw=true"  style="width: 100%" />
 
 - avec Ferror
 
-<img  src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-php.png?raw=true"  style="width: 100%" />
+<img  src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-ferror.png?raw=true"  style="width: 100%" />
 
 # Remerciement
 
