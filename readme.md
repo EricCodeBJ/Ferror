@@ -64,15 +64,11 @@ require_once "efsd.php";
 
 # Thanks
 
----
-
 - <a href='https://fonts.google.com/specimen/Inter' target='_blank'> Google Inter font</a>
 
 - <a href='https://github.com/EnlighterJS/EnlighterJS' target='_blank'>EnlighterJS</a>, an open source syntax highlighter written in pure javascript
 
 # License
-
----
 
 MIT License
 
@@ -97,7 +93,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 # Contribution
-
----
 
 Vous êtes libre d'apporter votre contribution a l'amélioraton de ce projet.
