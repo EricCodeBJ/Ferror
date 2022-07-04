@@ -2,7 +2,7 @@
 
 use Ferror\Core\Ferror;
 
-require_once "../Ferror/Core/Ferror.php";
+require_once "../vendor/autoload.php";
 
 Ferror::register(Ferror::DEBUG_MODE_ON);
 
@@ -21,7 +21,7 @@ $info = [];
 $info[] = "a";
 
 /* Failed to open stream: No such file or directory */
-// require_once "efsd.php";
+require_once "efsd.php";
 
 /* PHP Warning Division by zero */
 // 1 / 0;
