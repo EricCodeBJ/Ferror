@@ -56,7 +56,7 @@ require_once "efsd.php";
 
 **Without Ferror**
 
-<img src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-php.png?raw=true" style="width: 100%" />
+<img src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-php1.png?raw=true" style="width: 100%" />
 
 **With Ferror**
 
