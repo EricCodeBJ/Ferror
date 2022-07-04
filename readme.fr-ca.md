@@ -36,7 +36,7 @@ Parce que les erreurs sont importantes, parce qu'elles se doivent d'être bien p
 Ferror est disponible sur <a  href='https://packagist.org/'  target='_blank'>Packagist</a> et est installable via <a  href='https://getcomposer.org'  target='_blank'>Composer</a> avec la commmande suivante
 
 ```
-composer install mido/ferror
+composer require rayola/ferror
 ```
 
 # Example d'usage
