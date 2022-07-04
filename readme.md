@@ -54,11 +54,11 @@ Ferror::register(Ferror::DEBUG_MODE_ON);
 require_once "efsd.php";
 ```
 
-**Without Ferror**
+**🚫 Without Ferror**
 
 <img src="https://github.com/EricCodeBJ/Ferror/blob/515737b29216df7c3a5dc939ac46cb36a1e2ff48/Ferror/Resources/assets/img/capture/capture-php1.png?raw=true" style="width: 100%" />
 
-**With Ferror**
+**✔️ With Ferror**
 
 <img src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-ferror.png?raw=true" style="width: 100%" />
 
