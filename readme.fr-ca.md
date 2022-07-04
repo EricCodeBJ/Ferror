@@ -1,4 +1,4 @@
-# Ferror
+# Ferror: A light Php error formatter
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/EricCodeBJ/Ferror/blob/master/readme.md)
 [![fr-ca](https://img.shields.io/badge/lang-fr-ca-blue.svg)](https://github.com/EricCodeBJ/Ferror/blob/master/readme.fr-ca.md)
