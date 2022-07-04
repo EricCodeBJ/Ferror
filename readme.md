@@ -41,7 +41,7 @@ composer install mido/ferror
 
 # Usage example
 
-```
+```php
 <?php
 use Ferror\Core\Ferror;
 
@@ -56,11 +56,11 @@ require_once "efsd.php";
 
 - Ferror-free
 
-<img src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-php.png?raw=true" style="width: 100%" / >
+<img src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-php.png?raw=true" style="width: 100%" />
 
 - with Ferror
 
-<img src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-ferror.png?raw=true" style="width: 100%" / >
+<img src="https://github.com/EricCodeBJ/Ferror/blob/3cb7e9ea734efa6a39630290e0773a82dbe4bc40/Ferror/Resources/assets/img/capture/capture-ferror.png?raw=true" style="width: 100%" />
 
 # Thanks
 

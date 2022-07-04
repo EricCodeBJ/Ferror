@@ -41,7 +41,7 @@ composer install mido/ferror
 
 # Example d'usage
 
-```
+```php
 <?php
 use Ferror\Core\Ferror;
 
