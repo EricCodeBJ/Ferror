@@ -64,21 +64,8 @@ class Ferror
     public static function register(int $debug_mode = self::DEBUG_MODE_ON)
     {
         if ($debug_mode === self::DEBUG_MODE_ON) {
-            spl_autoload_register([self::getInstance(), "autoloader"]);
             set_error_handler(array(self::getInstance(), "errorHandler"));
             set_exception_handler(array(self::getInstance(), "exceptionHandler"));
-        }
-    }
-
-
-
-
-
-    // Class autoloader
-    protected static function autoloader(String $className)
-    {
-        if (strpos(strtolower($className), self::APP_NAME) !== false) {
-            require_once  dirname(__FILE__, 3) . DIRECTORY_SEPARATOR . $className . ".php";
         }
     }
 
@@ -103,10 +90,9 @@ class Ferror
 
 
     // Custom exception listening method
-    protected static function exceptionHandler($e)
+    public static function exceptionHandler($e)
     {
         if (!empty($e)) {
-
             if (strpos(strtolower(get_class($e)), "exception") !== false) {
                 $i = new FerrorExceptionModel($e);
             } else {

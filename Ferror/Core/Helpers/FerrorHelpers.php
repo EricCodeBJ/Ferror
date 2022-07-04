@@ -136,35 +136,37 @@ class  FerrorHelpers
      */
     public function getFileContent()
     {
-        $fileContent = "";
-        $handle = fopen(self::$datas["errorFile"], "r");
-        $fileOffset = -1;
-        if ($handle) {
-            $currentLine = 1;
+        if (self::$datas["errorFile"]) {
+            $fileContent = "";
+            $handle = fopen(self::$datas["errorFile"], "r");
+            $fileOffset = -1;
+            if ($handle) {
+                $currentLine = 1;
 
-            while (($line = fgets($handle))) {
+                while (($line = fgets($handle))) {
 
-                if ($currentLine >= intval(self::$datas["errorLine"]) - 15 && $currentLine <= intval(self::$datas["errorLine"]) + 15) {
-                    $fileOffset = $fileOffset == -1 ? $currentLine : $fileOffset;
-                    /*
-                        I added three ellipsis because the code colorator trims the empty lines 
-                        and it shifts the target line of the error
-                    */
-                    if (empty(trim($fileContent)) && empty(trim($line))) {
-                        $line .= ". . .\n";
+                    if ($currentLine >= intval(self::$datas["errorLine"]) - 15 && $currentLine <= intval(self::$datas["errorLine"]) + 15) {
+                        $fileOffset = $fileOffset == -1 ? $currentLine : $fileOffset;
+                        /*
+                            I added three ellipsis because the code colorator trims the empty lines 
+                            and it shifts the target line of the error
+                        */
+                        if (empty(trim($fileContent)) && empty(trim($line))) {
+                            $line .= ". . .\n";
+                        }
+                        $fileContent .= $line;
                     }
-                    $fileContent .= $line;
+
+                    $currentLine++;
                 }
 
-                $currentLine++;
+                fclose($handle);
+            } else {
+                $fileOffset = 0;
             }
-
-            fclose($handle);
-        } else {
-            $fileOffset = 0;
+            self::$datas["extra"]["fileOffset"] = $fileOffset;
+            self::$datas["extra"]["fileContent"] = $fileContent;
         }
-        self::$datas["extra"]["fileOffset"] = $fileOffset;
-        self::$datas["extra"]["fileContent"] = $fileContent;
     }
 
 
