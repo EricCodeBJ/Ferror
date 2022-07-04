@@ -7,7 +7,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/EricCodeBJ/Ferror/blob/master/readme.md)
 [![fr-ca](https://img.shields.io/badge/lang-fr-ca.svg)](https://github.com/EricCodeBJ/Ferror/blob/master/readme.fr-ca.md)
 
-# Fonctionnalité ?
+# Fonctionnalités
 
 - ✅ Intercepte toutes les erreurs et exceptions de votre code
 
@@ -44,18 +44,14 @@ composer install mido/ferror
 ```
 <?php
 use Ferror\Core\Ferror;
+
 require_once "../vendor/autoload.php";
 
 Ferror::register(Ferror::DEBUG_MODE_ON);
 
 
-
-
 /* ex: Failed to open stream: No such file or directory */
 require_once "efsd.php";
-
-
-
 ```
 
 - sans Ferror
