@@ -6,7 +6,6 @@ require_once "../vendor/autoload.php";
 
 Ferror::register(Ferror::DEBUG_MODE_ON);
 
-
 const DEKOUN = 10;
 const CEDRIC = ["d" => "jfk", "AV" => "sdf"];
 

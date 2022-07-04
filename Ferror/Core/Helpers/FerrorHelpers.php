@@ -80,10 +80,13 @@ class  FerrorHelpers
 
         foreach ($GLOBALS as $key => $values) {
             if (in_array(strtoupper($key), $gloobalArray)) {
-                $dot = !empty($values) ? "..." : "";
-                $globalMenus .= "<li data-target-global='$key'> $$key [$dot]</li>";
+                if (!empty($values)) {
+                    $dot = "...";
+                    $globalMenus .= "<li data-target-global='$key'> $$key [$dot]</li>";
+                }
                 $globalDatas .= '<div data-globals="' . $key . '" class="codeBlock invisible"> <pre data-enlighter-language="json"  data-enlighter-indent="2" data-enlighter-theme="bootstrap4">' . json_encode($values, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</pre></div>';
             } else {
+                // User variables Menu (ex: $data, $data2...)
                 $gblobalUserMenu .= "$$key, ";
                 $gblobalUserDatasArray .=   "// " . ucfirst(gettype($values)) . (is_object($values) ? " : " . get_class($values) : "") .
                     "\n $" . $key . " = " . $this->formatVariableByType($values) .

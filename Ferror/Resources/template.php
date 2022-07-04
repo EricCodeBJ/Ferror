@@ -7,14 +7,14 @@
     <base href="<?php echo $data["extra"]["basename"]; ?>">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/libs/Enlighterjs/css/enlighterjs.min.css" />
-    <link ref="icon" href="assets/icons/logoFerror.png" />
+    <link ref="icon" href="assets/img/icons/logoFerror-circle.png" />
     <title>Ferror | <?php echo $data["errorType"] . " " . $data["errorMessage"]; ?></title>
 </head>
 
 <body class="theme-light">
     <!-- Table of error: Header -->
     <p class="top-alert alert-error">
-        <img src="assets/icons/alert-circle.svg" alt="icon" />
+        <img src="assets/img/icons/alert-circle.svg" alt="icon" />
         <span>PHP: [<?php echo $data["errorType"]; ?>] has occurred</span>
     </p>
 
@@ -38,13 +38,14 @@
                 <div style="padding-right:37px">
                     <span><?php echo $data["errorMessage"]; ?></span>
                     <!-- This textarea is used to help me copy the error code 
-                            He has no utility in the front, why i have hidden this -->
+                        because it is impossible from paragraph.
+                        He has no utility in the front, why i have hidden this -->
                     <textarea id="errorMessage" style="opacity: 0; width: 0; height: 0">
                             <?php echo "PHP " . $data["errorType"] . " " . $data["errorMessage"]; ?>
                         </textarea>
                 </div>
                 <div class="iconBloc">
-                    <img src="assets/icons/copy-icon.png" alt="copy-icon" title="copy">
+                    <img src="assets/img/icons/copy-icon.png" alt="copy-icon" title="copy">
                     <span id="copySpan">copy</span>
                 </div>
             </td>
@@ -64,17 +65,16 @@
         <div class="menu">
             <ul>
                 <div class="menuSubTitle activeTitleMenu">
-                    <li data-target-global='errorFile' class="active"> <b>File </b> <br /> <span class="menuSubSubTitle"><?php echo $data["extra"]["fileNameOnLine"]; ?></span></li>
+                    <li data-target-global='errorFile' class="active"><b>File </b> <br /><span class="menuSubSubTitle"><?php echo $data["extra"]["fileNameOnLine"]; ?></span></li>
                 </div>
-                <div class="menuSubTitle">
-                    <li data-target-global='all-variables'> <b>Variables </b> <br /> <span class="menuSubSubTitle"><?php echo $data["extra"]["gblobalUserMenuVariables"]; ?></span></li>
+                <div <?php echo empty($data["extra"]["gblobalUserMenuVariables"]) ? "hidden" : "" ?> class="menuSubTitle">
+                    <li data-target-global='all-variables'><b>Variables </b> <br /><span class="menuSubSubTitle"><?php echo $data["extra"]["gblobalUserMenuVariables"]; ?></span></li>
                 </div>
-                <div class="menuSubTitle">
-                    <li data-target-global='all-constantes'> <b>Constantes </b> <br /> <span class="menuSubSubTitle"><?php echo $data["extra"]["gblobalUserMenuConstantes"]; ?></span></li>
+                <div <?php echo empty($data["extra"]["gblobalUserMenuConstantes"]) ? "hidden" : "" ?> class="menuSubTitle">
+                    <li data-target-global='all-constantes'><b>Constants </b> <br /><span class="menuSubSubTitle"><?php echo $data["extra"]["gblobalUserMenuConstantes"]; ?></span></li>
                 </div>
-                <div class="menuSubTitle mneuGlobales">
-                    <p id="globalParagraphe">Globals</p>
-                    <?php echo $data["extra"]["globalMenus"]; ?>
+                <div <?php echo empty($data["extra"]["globalMenus"]) ? "hidden" : "" ?> class="menuSubTitle mneuGlobales">
+                    <p id="globalParagraphe">Globals</p><?php echo $data["extra"]["globalMenus"]; ?>
                 </div>
             </ul>
         </div>
